@@ -1,0 +1,9 @@
+<1> The section title is required.
+====
+
+[listing]
+.Code block sourced from file
+....
+[source,haskell]
+
+include::hello.hs[]
