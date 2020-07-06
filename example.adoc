@@ -1,9 +1,9 @@
-<1> The section title is required.
-====
+= Hello, AsciiDoc!
 
-[listing]
-.Code block sourced from file
-....
-[source,haskell]
+== First Section
+
+[source,ruby]
+puts "Hello, World!" # inline code
+
 
 include::hello.hs[]
