@@ -1,0 +1,72 @@
+= Chapter 1: Getting Started. Abstract
+
+The most popular Haskell implementation is Glasgow Haskell Compiler (GHC).
+It has 3 main components:
+
+`ghc` - the compiler, `ghci` - REPL, `runghc` - script runner.
+
+=== Run GHCi
+
+[source,sh]
+---
+$ ghci
+GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help
+Prelude>
+---
+
+=== GHCi as calculator
+
+[source,sh]
+---
+Prelude> 3 ^ 20 # <1>
+3486784401
+Prelude> 1 + -1 # <2>
+<interactive>:8:1: error:
+    Precedence parsing error
+        cannot mix ‘+’ [infixl 6] and prefix `-' [infixl 6] in the same infix expression
+Prelude> 1 + (-1) # <3>
+0
+Prelude> 2 * -3 # <2>
+<interactive>:10:1: error:
+    Precedence parsing error
+        cannot mix ‘*’ [infixl 7] and prefix `-' [infixl 6] in the same infix expression
+Prelude> 2 * (-3) # <3>
+-6
+---
+<1> You can use basic arithmetic operations: +, -, *, /, ^.
+<2> Be careful with unary -.
+<3> Wrap negative literals with () if using in expressions.
+
+[source,sh]
+---
+ghci> True && False # <1>
+False
+ghci> False || True # <1>
+True
+ghci> True && 1 # <2>
+
+<interactive>:11:9: error:
+    • No instance for (Num Bool) arising from the literal ‘1’
+    • In the second argument of ‘(&&)’, namely ‘1’
+      In the expression: True && 1
+      In an equation for ‘it’: it = True && 1
+---
+<1> Haskell has Boolean arithmetic as well (syntax is regular).
+<2> Strong
+
+[source,sh]
+---
+Prelude> 1 == 1 # <1>
+True
+Prelude> 3 > 2 # <1>
+True
+Prelude> 4 >= 3.99 # <1>
+True
+Prelude> 2 /= 3 # <2>
+True
+Prelude> 2 /= 2 # <2>
+False
+Prelude>
+---
+<1> Comparing in Haskell is regular
+<2> Except for Not Equal operator, it is written as / and = together.
